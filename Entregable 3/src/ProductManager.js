@@ -34,9 +34,11 @@ export class ProductManager {
  
     }
 
-    getProductById(id){
+    async getProductById(id){
         if (this.productos.find(product => product.id === id)){
-            return console.log(this.productos.find(product => product.id === id))
+            const producto = this.productos.find(product => product.id === id)
+            const comoJson = JSON.parse(producto)
+            return comoJson
         } else{
             return console.log("No existe el producto")
         }
